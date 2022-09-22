@@ -28,7 +28,9 @@ class Navigate(SimpleEmbodimentEnvSpec):
     def create_observables(self) -> List[Handler]:
         return super().create_observables() + [
             handlers.CompassObservation(angle=True, distance=False),
-            handlers.FlatInventoryObservation(['dirt'])]
+            handlers.FlatInventoryObservation(['dirt']), 
+            handlers.ObservationFromCurrentLocation()
+        ]
 
     def create_actionables(self) -> List[Handler]:
         return super().create_actionables() + [
